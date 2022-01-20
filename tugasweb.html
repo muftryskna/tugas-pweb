@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Tugas Web 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        function reset_data(){
+            nama = document.getElementById('nama').value="";
+            jeniskelamin = document.getElementById('jeniskelamin').value="";
+            prodi = document.getElementById('prodi').value="";
+            hoby = document.getElementById('hoby').value="";
+            document.getElementById('nmmhs').innerHTML ="";
+            document.getElementById('jnsklmn').innerHTML = "";
+            document.getElementById('prdmhs').innerHTML = "";
+            document.getElementById('hobymhs').innerHTML = "";
+        }
+        function kirim_data() {
+            var nama = document.getElementById('nama').value;
+            var jeniskelamin = document.getElementById('jeniskelamin').value;
+            var prodi = document.getElementById('prodi').value;
+            var hoby = document.getElementById('hoby').value;
+
+            if (nama==""){
+                alert ("silahkan isi nama");
+                return false;
+            }
+
+            if (jeniskelamin==""){
+                alert ("silahkan isi Jenis Kelamin");
+                return false;
+            }
+
+            var jnsKelNama ="";
+            if (jeniskelamin== "Lk"){
+                jnsKelNama = "Laki-laki"
+            } else if(jeniskelamin== "Pr"){
+                jnsKelNama = "Perempuan";
+            }
+
+            if (prodi==""){
+                alert ("silahkan isi prodi");
+                return false;
+            }
+
+            if (hoby==""){
+                alert ("silahkan isi hoby");
+                return false;
+            }
+
+            var tanya = confirm("Yakin Akan Menyimpan Data Ini?");
+            if (tanya==true){
+            document.getElementById('nmmhs').innerHTML = nama;
+            document.getElementById('jnsklmn').innerHTML = jeniskelamin;
+            document.getElementById('prdmhs').innerHTML = prodi;
+            document.getElementById('hobymhs').innerHTML = hoby;
+            } else
+            return false;
+
+            
+        
+         
+        }
+        </script>
+
+</head>
+<body>
+    <h3>Form Pendaftaran Mahasiswa</h3>
+ 
+<p>
+    Nama : <input type="text"  id="nama">
+</p>
+<p>
+    Jenis Kelamin : <input type="radio" id="jeniskelamin" value="Pria">Pria
+                    <input type="radio" id="jeniskelamin" value="Wanita">Wanita<br>
+</p>
+
+<p>
+Prodi : <select name="prodi" id="prodi">
+            <option value="Teknik Informatika">Teknik Informatika
+            <option value="Sistem Informasi">Sistem Informasi</option> </select>
+</p>
+<p>
+    Hoby : <input type="checkbox" id="hoby" name="hoby" value="Coding">Coding
+            <input type="checkbox" id="hoby" name="hoby" value="Jalan-jalan">Jalan-jalan
+            <input type="checkbox" id="hoby" name="hoby" value="Makan">Makan
+</p>
+<p>
+  <input type="button" value="kirim" name="btnkirim" id="btnkirim" onclick="kirim_data()">
+  <input type="reset" value="Reset" name="btnreset" id="btnreset" onclick="reset_data()">
+</p>
+<p></p>
+    <h3>Hasil Inputan Form Mahasiswa</h3>
+    <div id='result'>
+        <p>Nama : <label id="nmmhs"></label></p>
+        <p>Jenis Kelamin : <label id="jnsklmn"></label></p>
+        <p>Prodi : <label id="prdmhs"></label></p>
+        <p>Hoby :<label id="hobymhs"></label></p>
+    </div>
+</form>	
+</form> 
+</body>
+</html>
